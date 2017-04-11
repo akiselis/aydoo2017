@@ -8,17 +8,17 @@ public class DadorDeFormato {
 
 	String formatoDeImpresion = null;
 
-	public String darFormatoIngresado(int numeroIngresado, String formatoIngresado,
-			LinkedList<Integer> listaDeNumeros) {
+	public String darFormatoIngresado(int numeroIngresado, String formatoIngresado, LinkedList<Integer> listaDeNumeros,
+			boolean noSeIngresoFormato) {
 		String resultadoEnFormatoIngresado = null;
 		int numero = numeroIngresado;
 		formatoDeImpresion = formatoIngresado;
 
-		if (formatoDeImpresion == null || formatoDeImpresion.equalsIgnoreCase("pretty")) {
+		if (noSeIngresoFormato || formatoDeImpresion.equalsIgnoreCase("--format=pretty")) {
 
 			resultadoEnFormatoIngresado = this.imprimirEnFormatoPretty(numero, listaDeNumeros);
 
-		} else if (formatoDeImpresion.equalsIgnoreCase("quiet")) {
+		} else if (formatoDeImpresion.equalsIgnoreCase("--format=quiet")) {
 
 			resultadoEnFormatoIngresado = this.imprimirEnFormatoQuiet(listaDeNumeros);
 

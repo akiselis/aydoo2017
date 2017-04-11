@@ -6,13 +6,19 @@ public class CalculadorDeFactorPrimo {
 
 	public static final void main(String arg[]) {
 		int valorIngresado = Integer.parseInt(arg[0]);
-		String formatoIngresado = arg[1];
-		LinkedList<Integer> numeroDescompuesto = descomponerEnFactoresPrimos(valorIngresado);
+		String formatoIngresado = arg[1];	
+		boolean noIngresaFormato = false;
 		DadorDeFormato unDadorDeFormato = new DadorDeFormato();
+		LinkedList<Integer> numeroDescompuesto = descomponerEnFactoresPrimos(valorIngresado);
+		String FactoresPrimosConFormato = null;
 
-		String FactoresPrimosConFormato = unDadorDeFormato.darFormatoIngresado(valorIngresado, formatoIngresado,
-				numeroDescompuesto);
-		
+		if (arg.length < 2) {
+			noIngresaFormato = true;
+		}
+
+		FactoresPrimosConFormato = unDadorDeFormato.darFormatoIngresado(valorIngresado, formatoIngresado,
+				numeroDescompuesto, noIngresaFormato);
+
 		System.out.println(FactoresPrimosConFormato);
 	}
 

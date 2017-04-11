@@ -24,7 +24,7 @@ public class DarFormatoIngresadoTest {
 		listaDeNumeros.add(3);
 		listaDeNumeros.add(5);
 
-		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "yerba", listaDeNumeros);
+		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "--format=yerba", listaDeNumeros,false);
 
 		Assert.assertEquals("Formato no aceptado. Las opciones posibles son: pretty o quiet.", resultadoObtenido);
 
@@ -45,7 +45,7 @@ public class DarFormatoIngresadoTest {
 		listaDeNumeros.add(3);
 		listaDeNumeros.add(5);
 
-		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "pretty", listaDeNumeros);
+		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "--format=pretty", listaDeNumeros,false);
 
 		Assert.assertEquals("Factores primos 360: 2 2 2 3 3 5 ", resultadoObtenido);
 
@@ -66,7 +66,7 @@ public class DarFormatoIngresadoTest {
 		listaDeNumeros.add(3);
 		listaDeNumeros.add(5);
 
-		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, null, listaDeNumeros);
+		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, null, listaDeNumeros,true);
 
 		Assert.assertEquals("Factores primos 360: 2 2 2 3 3 5 ", resultadoObtenido);
 
@@ -88,7 +88,7 @@ public class DarFormatoIngresadoTest {
 		listaDeNumeros.add(3);
 		listaDeNumeros.add(5);
 
-		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "PReTTY", listaDeNumeros);
+		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "--format=PReTTY", listaDeNumeros,false);
 
 		Assert.assertEquals("Factores primos 360: 2 2 2 3 3 5 ", resultadoObtenido);
 
@@ -110,7 +110,7 @@ public class DarFormatoIngresadoTest {
 		listaDeNumeros.add(3);
 		listaDeNumeros.add(5);
 
-		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "quiet", listaDeNumeros);
+		resultadoObtenido = unDadorDeFormato.darFormatoIngresado(numero, "--format=quiet", listaDeNumeros,false);
 
 		Assert.assertEquals("\n5\n3\n3\n2\n2\n2\n", resultadoObtenido);
 
