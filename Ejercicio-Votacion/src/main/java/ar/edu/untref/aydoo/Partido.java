@@ -1,16 +1,15 @@
 package ar.edu.untref.aydoo;
 
-public class Provincia {
+public class Partido {
 
-	int idProvincia;
 	String nombre;
 
-	public Provincia(String nombre) {
-		this.idProvincia = idProvincia;
+	public Partido(String nombre) {
 		this.nombre = nombre;
 	}
 
 	public String getNombre() {
 		return this.nombre;
 	}
+
 }

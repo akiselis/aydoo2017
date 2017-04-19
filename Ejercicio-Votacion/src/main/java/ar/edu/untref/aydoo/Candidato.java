@@ -3,31 +3,24 @@ package ar.edu.untref.aydoo;
 public class Candidato {
 
 	int idCandidato;
-	//int idPartido;
 	String nombreCandidato;
-	String nombrePartido;
-	
-	
-	public Candidato (int idDeCandidato, String nombreDeCandidato, String nombreDePartido){
-		idCandidato=idDeCandidato;
-		//idPartido=idDePartido;
-		nombreCandidato=nombreDeCandidato;
-		nombrePartido=nombreDePartido;
+	Partido partido;
+
+	public Candidato(int idDeCandidato, String nombreDeCandidato, Partido partido) {
+		this.idCandidato = idDeCandidato;
+		this.nombreCandidato = nombreDeCandidato;
+		this.partido = partido;
 	}
-	
-	public int getIdCandidato(){
+
+	public int getIdCandidato() {
 		return idCandidato;
 	}
-	
-	/*public int getIdPartido(){
-		return idPartido;
-	}*/
-	
-	public String getNombreCandidato(){
+
+	public String getNombreCandidato() {
 		return nombreCandidato;
 	}
-	
-	public String getPartido(){
-		return nombrePartido;
+
+	public Partido getPartido() {
+		return partido;
 	}
 }

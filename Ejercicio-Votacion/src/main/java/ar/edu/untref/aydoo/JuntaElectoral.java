@@ -6,49 +6,50 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Map.Entry;
 
-public class Elecciones {
+public class JuntaElectoral {
 
 	LinkedList<Candidato> listaDeCandidatos = new LinkedList();
 	LinkedList<Voto> listaDeVotos = new LinkedList();
 
-	Map<Integer, Integer> listaDeVotosPorCandidatos = new HashMap<Integer, Integer>();
+	Map<Candidato, Integer> listaDeVotosPorCandidatos = new HashMap<Candidato, Integer>();
 
 	public void setCandidatos(Candidato unCandidato) {
 		listaDeCandidatos.add(unCandidato);
-		int idDeCandidato = unCandidato.getIdCandidato();
-		listaDeVotosPorCandidatos.put(idDeCandidato, 0);
+		Candidato candidato = unCandidato;
+		listaDeVotosPorCandidatos.put(candidato, 0);
 	}
 
 	public void recibirVoto(Voto unVoto) {
 		listaDeVotos.add(unVoto);
 	}
 
-	public int getCandidatoConMasVotosNacional() {
+	public Candidato getCandidatoConMasVotosNacional() {
 
 		Iterator<Voto> iteradorListaVoto = listaDeVotos.iterator();
 
 		while (iteradorListaVoto.hasNext()) {
-			int idCandidato = iteradorListaVoto.next().getCandidato().getIdCandidato();
-			int valor = (listaDeVotosPorCandidatos.get(idCandidato)) + 1;
-			listaDeVotosPorCandidatos.put(idCandidato, valor);
+			Candidato candidato = iteradorListaVoto.next().getCandidato();
+			int valor = (listaDeVotosPorCandidatos.get(candidato)) + 1;
+			listaDeVotosPorCandidatos.put(candidato, valor);
 		}
 
-		Map.Entry<Integer, Integer> maxEntry = null;
+		Map.Entry<Candidato, Integer> maxEntry = null;
 
-		for (Map.Entry<Integer, Integer> entry : listaDeVotosPorCandidatos.entrySet()) {
+		for (Map.Entry<Candidato, Integer> entry : listaDeVotosPorCandidatos.entrySet()) {
 			if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
 				maxEntry = entry;
 			}
 		}
-		int idCandidato = maxEntry.getKey();
+		Candidato candidato = maxEntry.getKey();
 
-		return idCandidato;
+		return candidato;
 	}
 
-	public String getCandidatoConMasVotosEnProvincia(int idProvincia) {
+	public Partido getPartidoConMasVotosEnProvincia(Provincia unaProvincia) {
 
-		int idDeProvincia = idProvincia;
+		Provincia provincia = unaProvincia;
 		Voto unVoto;
 		Iterator<Voto> iterador2ListaVoto = listaDeVotos.iterator();
 		Iterator<Candidato> iteradorDeCandidatos = listaDeCandidatos.iterator();
@@ -57,30 +58,30 @@ public class Elecciones {
 
 			unVoto = iterador2ListaVoto.next();
 
-			if (unVoto.getProvincia().getIdProvincia() == idDeProvincia) {
-				int idCandidato = unVoto.getCandidato().getIdCandidato();
-				int valor = (listaDeVotosPorCandidatos.get(idCandidato)) + 1;
-				listaDeVotosPorCandidatos.put(idCandidato, valor);
+			if (unVoto.getProvincia() == provincia) {
+				Candidato candidato = unVoto.getCandidato();
+				int valor = (listaDeVotosPorCandidatos.get(candidato)) + 1;
+				listaDeVotosPorCandidatos.put(candidato, valor);
 			}
 		}
 
-		Map.Entry<Integer, Integer> maxEntry = null;
+		Map.Entry<Candidato, Integer> maxEntry = null;
 
-		for (Map.Entry<Integer, Integer> entry : listaDeVotosPorCandidatos.entrySet()) {
+		for (Map.Entry<Candidato, Integer> entry : listaDeVotosPorCandidatos.entrySet()) {
 			if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
 				maxEntry = entry;
 			}
 		}
 
-		int idDeCandidato = maxEntry.getKey();
-		String partido = null;
+		Candidato candidato = maxEntry.getKey();
+		Partido partido = null;
 		Candidato unCandidato;
 
 		while (iteradorDeCandidatos.hasNext()) {
 
 			unCandidato = iteradorDeCandidatos.next();
 
-			if (unCandidato.getIdCandidato() == idDeCandidato) {
+			if (unCandidato == candidato) {
 				partido = unCandidato.getPartido();
 			}
 		}
