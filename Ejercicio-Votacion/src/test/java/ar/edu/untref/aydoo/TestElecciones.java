@@ -12,9 +12,9 @@ public class TestElecciones {
 		Partido victoria = new Partido("victoria");
 		Partido renovador = new Partido("renovador");
 
-		Candidato macri = new Candidato(1, "macri", cambiemos);
-		Candidato scioli = new Candidato(2, "scioli", victoria);
-		Candidato massa = new Candidato(3, "massa", renovador);
+		Candidato macri = new Candidato("macri", cambiemos);
+		Candidato scioli = new Candidato("scioli", victoria);
+		Candidato massa = new Candidato("massa", renovador);
 
 		Provincia jujuy = new Provincia("jujuy");
 		Provincia mendoza = new Provincia("mendoza");
@@ -55,9 +55,9 @@ public class TestElecciones {
 		Partido victoria = new Partido("victoria");
 		Partido renovador = new Partido("renovador");
 
-		Candidato macri = new Candidato(1, "macri", cambiemos);
-		Candidato scioli = new Candidato(2, "scioli", victoria);
-		Candidato massa = new Candidato(3, "massa", renovador);
+		Candidato macri = new Candidato("macri", cambiemos);
+		Candidato scioli = new Candidato("scioli", victoria);
+		Candidato massa = new Candidato("massa", renovador);
 
 		Votante micaela = new Votante();
 		Votante manuel = new Votante();
@@ -99,8 +99,8 @@ public class TestElecciones {
 		Partido victoria = new Partido("victoria");
 		Partido renovador = new Partido("renovador");
 
-		Candidato scioli = new Candidato(2, "scioli", victoria);
-		Candidato massa = new Candidato(3, "massa", renovador);
+		Candidato scioli = new Candidato("scioli", victoria);
+		Candidato massa = new Candidato("massa", renovador);
 
 		Votante manuel = new Votante();
 		Votante sandra = new Votante();
